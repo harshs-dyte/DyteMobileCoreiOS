@@ -2,8 +2,8 @@
 import PackageDescription
 
 // BEGIN KMMBRIDGE VARIABLES BLOCK (do not edit)
-let remoteKotlinUrl = "https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-1.25.1-3cd7450e-5ee2-4e9b-adab-f3ece296f594.xcframework.zip"
-let remoteKotlinChecksum = "2f6f0917e67f86495e3979d51d8dc0159b3a877aacffd2ad702a60c4710442f9"
+let remoteKotlinUrl = "https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteiOSCore-2.1.0-ad6dd60e-06a1-43ca-a4d7-4d7cf3d85ef1.xcframework.zip"
+let remoteKotlinChecksum = "76a818e81ff026698206a33e7817eaefcc23406d51b763a0dcea56d21766655c"
 let packageName = "DyteiOSCore"
 // END KMMBRIDGE BLOCK
 
@@ -11,13 +11,14 @@ let package = Package(
     name: "DyteMobileCoreiOS",
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: packageName, targets: [packageName, "WebRTC"]),
+        .library(name: packageName, targets: [packageName, "DyteWebRTC"]),
+        .library(name: "DyteWebRTC", targets: ["DyteWebRTC"]),
     ],
     targets: [
         .binaryTarget(
-            name: "WebRTC",
-            url: "https://github.com/webrtc-sdk/Specs/releases/download/114.5735.02/WebRTC.xcframework.zip",
-            checksum: "c30668eac8f14a21cfb5612ca4e81b10e2d8d8d5e5231c00874ca118eff9a1c0"
+            name: "DyteWebRTC",
+            url: "https://dyte-assets.s3.ap-south-1.amazonaws.com/sdk/ios_core/DyteWebRTC_v0.0.4.zip",
+            checksum: "25318dfb4bd018fde6ed7fd3337d9aa1c62fc8b39ab985c60fa530eb3819e68a"
         ),
         .binaryTarget(
             name: packageName,
@@ -26,4 +27,3 @@ let package = Package(
         ),
     ]
 )
-
